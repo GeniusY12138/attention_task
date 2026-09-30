@@ -1,0 +1,23 @@
+{{ block title }}Work section complete{{ endblock }}
+{{ block styles }}<link rel="stylesheet" href="{{ static 'independent_work/style.css' }}">{{ endblock }}
+{{ block content }}
+<p>Thank you. Your work section has finished and your results have been saved.</p>
+<div class="work-card">
+<table class="work-table">
+  <tr><th>Participant ID</th><td>{{ player.subject_id }}</td></tr>
+  <tr><th>Completed work time</th><td>{{ minutes_display }} minutes</td></tr>
+  <tr><th>Correct answers</th><td>{{ player.correct_answers }}</td></tr>
+  <tr><th>Incorrect answers</th><td>{{ player.incorrect_answers }}</td></tr>
+  <tr><th>Missed questions</th><td>{{ player.missed_questions }}</td></tr>
+  <tr><th>Accuracy</th><td>{{ if player.accuracy_available }}{{ accuracy_display }}{{ else }}Not applicable{{ endif }}</td></tr>
+</table>
+</div>
+{{ if zero_work }}
+<p>No work time was required for this assignment.</p>
+{{ elif player.accuracy_available }}
+<p>{{ if player.meets_accuracy_threshold }}You met the 80% accuracy requirement.{{ else }}Your accuracy was below 80%. Please speak to the researcher.{{ endif }}</p>
+{{ else }}
+<p>No questions were scored during this short session. Please speak to the researcher.</p>
+{{ endif }}
+<p>You may close this page. Follow the researcher's instructions about when you may leave.</p>
+{{ endblock }}

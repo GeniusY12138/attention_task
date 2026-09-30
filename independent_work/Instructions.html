@@ -1,0 +1,23 @@
+{{ block title }}Work section{{ endblock }}
+{{ block styles }}<link rel="stylesheet" href="{{ static 'independent_work/style.css' }}">{{ endblock }}
+{{ block content }}
+<div class="work-card">
+  <p>Your assigned work time is <strong>{{ minutes_display }} minutes</strong>.</p>
+  <p>You will see a mostly static screen. At random intervals of 10–30 seconds,
+     a short question will appear. Respond within <strong>8 seconds</strong>.</p>
+  <ul>
+    <li>Press the indicated letter: F or J.</li>
+    <li>Type the answer to a simple addition question.</li>
+    <li>Copy a two-digit number.</li>
+    <li>Press the indicated left or right arrow key.</li>
+    <li>Compare two numbers using &gt;, &lt;, or =.</li>
+  </ul>
+  <p>For typed answers, press <strong>Enter</strong> to submit.</p>
+  <p>Aim for at least <strong>80% accuracy</strong>. Incorrect answers and missed
+     questions count against accuracy. They do not add extra work time.</p>
+  <p>Keep this tab visible. The work timer pauses while the tab is hidden or the
+     connection is interrupted. Your progress is saved as you work.</p>
+</div>
+<p>The timer starts when you click the button below.</p>
+<button class="otree-btn-next btn btn-primary">Start work</button>
+{{ endblock }}

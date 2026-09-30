@@ -1,0 +1,21 @@
+{{ block title }}Researcher setup{{ endblock }}
+{{ block styles }}<link rel="stylesheet" href="{{ static 'independent_work/style.css' }}">{{ endblock }}
+{{ block content }}
+<p>Enter the participant's ID and assigned work time, then hand the computer to the participant.</p>
+<div class="work-card">
+  {{ formfield 'subject_id' }}
+  <div class="work-field">
+    <label for="work_minutes">Work minutes</label>
+    <input class="form-control" type="number" id="work_minutes" name="work_minutes"
+           value="{{ form.work_minutes.data }}" min="0" max="180" step="0.01" required>
+    {{ formfield_errors 'work_minutes' }}
+    <small class="work-muted">Enter the actual work duration. For example, 35.4 means 35 minutes 24 seconds.</small>
+  </div>
+  <div class="work-field">
+    <label for="setup_password">Researcher password</label>
+    <input class="form-control" id="setup_password" name="setup_password" type="password" autocomplete="off" required>
+    {{ formfield_errors 'setup_password' }}
+  </div>
+</div>
+<button class="otree-btn-next btn btn-primary">Confirm assignment</button>
+{{ endblock }}

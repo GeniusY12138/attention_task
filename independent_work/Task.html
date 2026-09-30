@@ -1,0 +1,20 @@
+{{ block title }}Attention task{{ endblock }}
+{{ block styles }}<link rel="stylesheet" href="{{ static 'independent_work/style.css' }}">{{ endblock }}
+{{ block content }}
+<p class="work-muted">Assigned work time: {{ minutes_display }} minutes. Keep this tab visible and respond when a question appears.</p>
+<div class="work-card">
+  <div id="statusLine" class="work-status" role="status">Connecting…</div>
+  <div class="work-muted">Work time remaining</div>
+  <div id="timerLine" class="work-timer">—</div>
+  <div id="waitingText" class="work-prompt">Please wait for the next question.</div>
+  <div id="promptBox" class="work-prompt" hidden>
+    <h2 id="promptText"></h2>
+    <input id="promptInput" class="work-input" type="text" autocomplete="off" aria-label="Your answer" hidden>
+    <p id="promptHint" class="work-muted" style="margin-top:12px"></p>
+    <p id="promptTime" class="work-muted"></p>
+  </div>
+</div>
+<p class="work-muted">The page advances automatically when your assigned work time is complete.</p>
+<noscript>This task requires JavaScript. Please ask the researcher for help.</noscript>
+{{ endblock }}
+{{ block scripts }}<script src="{{ static 'independent_work/task.js' }}"></script>{{ endblock }}
